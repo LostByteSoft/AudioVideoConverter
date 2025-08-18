@@ -3,10 +3,15 @@ Audio &amp; Video Converter for Windows (In batch style)
 
 Converter for windows (any).
 
+# Converter
+
 Convert any audio file to : -acodec libmp3lame -ab 320k -ar 44100 -ac 2
+
 Convert any video file to : format=yuv420p10le -c:v libx264 -crf 24 with aac / dts or no sound
+
 Convert any HDR video file to SDR : format=yuv420p10le -c:v libx264 -crf 24
 
+# File list
 
 FILE-to-mp3.bat
 
