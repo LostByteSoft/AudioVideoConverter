@@ -3,6 +3,10 @@ Audio &amp; Video Converter for Windows (In batch style)
 
 Converter for windows (any).
 
+You need FFMPEG installed in your system in C:\Program Files\ffmpeg\bin (or change it in the file path)
+
+Download here : https://ffmpeg.org/download.html#build-windows
+
 # Converter
 
 Convert any audio file to : -acodec libmp3lame -ab 320k -ar 44100 -ac 2
