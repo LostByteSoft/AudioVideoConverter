@@ -3,7 +3,7 @@ path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
 	echo LostByteSoft Version 2025-08-19-07-09-22
-	echo Converter : HDR-to-SDR - Aac
+	echo Converter : 2160p - None
 	echo Started: %date% %time%
 		setlocal EnableExtensions
 		rem Get start time:
@@ -22,14 +22,14 @@ echo Select and file name
 	echo/
 	set /p name=Please enter the save name : 
 	echo/
-	echo Save file name will be : %name%-x264.10b.Sdr-Aac.mkv
+	echo Save file name will be : %name%-2160p.x264.10b.Sdr-NoSound.mkv
 	echo/
 	ping localhost -n 1 >nul
 
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Convert
 	echo/
-	ffmpeg -loglevel error -v error -stats -i "%file%" -vf zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p10le -c:v libx264 -crf 24 -preset faster -tune fastdecode -c:a aac -ac 2 "%name%-x264.10b.Sdr-Aac.mkv"
+	ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=3840x2160:flags=lanczos,format=yuv420p -crf 24 -preset faster -tune fastdecode -an -sn "%name%-2160p.x264.10b.Sdr-NoSound.mkv"
 	echo/
 
 echo -------------------------=========== SEPARATOR =============-------------------------

@@ -1,6 +1,8 @@
 @echo off
 path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
+echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
+	echo LostByteSoft Version 2025-08-19-07-09-22
 	echo Converter : 1080p - Dts
 	echo Started: %date% %time%
 		setlocal EnableExtensions
