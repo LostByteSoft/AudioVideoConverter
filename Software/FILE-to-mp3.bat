@@ -2,7 +2,21 @@
 path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
-	echo LostByteSoft Version 2025-08-19-07-09-22
+	echo/
+	echo LostByteSoft AudioVideoConverter Version 2025-08-30-14-06-37
+	echo https://github.com/LostByteSoft/AudioVideoConverter
+	echo/
+	if exist "C:\Program Files\ffmpeg\bin\ffmpeg.exe" (
+	    echo FFmpeg.exe found. Proceeding...
+	    echo/
+	    goto :runme
+	) else (
+	    echo FFmpeg.exe not found at "C:\Program Files\ffmpeg\bin\ffmpeg.exe"
+	    echo Please ensure FFmpeg is installed correctly. Will EXIT !
+	    pause
+	    exit /b 1
+	)
+	:runme
 	echo Converter : Any file to mp3
 	echo Started: %date% %time%
 		setlocal EnableExtensions
@@ -13,7 +27,6 @@ echo Lead-in
 	echo/
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Select and file name
-
 	set dialog="about:<input type=file id=FILE><script>FILE.click();new ActiveXObject
 	set dialog=%dialog%('Scripting.FileSystemObject').GetStandardStream(1).WriteLine(FILE.value);
 	set dialog=%dialog%close();resizeTo(0,0);</script>"
@@ -24,7 +37,7 @@ echo Select and file name
 	echo/
 	echo Save file name will be : %name%_conv.mp3
 	echo/
-	ping localhost -n 1 >nul
+	ping localhost -n 2 >nul
 
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Convert
