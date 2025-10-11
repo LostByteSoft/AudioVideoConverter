@@ -3,7 +3,7 @@ path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
 	echo LostByteSoft Version 2025-08-19-07-09-22
-	echo Converter : 720p - Aac
+	echo Converter : 1080p - Dts
 	echo Started: %date% %time%
 		setlocal EnableExtensions
 		rem Get start time:
@@ -22,14 +22,22 @@ echo Select and file name
 	echo/
 	set /p name=Please enter the save name : 
 	echo/
-	echo Save file name will be : %name%-1080p.x264.10b.Sdr-aac.mkv
+	echo Save file name will be : "%name%-x264.1080p.10b.Sdr-Dts.mkv"
 	echo/
 	ping localhost -n 1 >nul
 
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Convert
 	echo/
-	ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=1920x1080:flags=lanczos,format=yuv420p10le -crf 24 -preset faster -tune fastdecode -c:a aac "%name%-1080p.x264.10b.Sdr-aac.mkv"
+	echo OLD ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=1920x1080:flags=lanczos,format=yuv420p10le -crf 22 -preset faster -tune fastdecode -strict experimental -c:a dts "%name%-1080p.x264.10b.Sdr-Dts.mkv"
+
+
+	ffmpeg -loglevel error -v error -stats -i "%file%" -c:v libx264 -crf 22 -preset faster -tune fastdecode -pix_fmt yuv420p10le -strict experimental -c:a dts "%name%-x264.10b-Dts.mkv"
+
+	echo AI ffmpeg -loglevel error -stats -i "%file%" -c:v libx264 -crf 22 -preset faster -tune fastdecode -pix_fmt yuv420p10le -c:a dts "%name%-x264.10b-Dts.mkv"
+
+
+
 	echo/
 
 echo -------------------------=========== SEPARATOR =============-------------------------

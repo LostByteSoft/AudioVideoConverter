@@ -2,7 +2,7 @@
 path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
-	echo LostByteSoft Version 2025-08-30-14-06-24
+	echo LostByteSoft Version 2025-08-19-07-09-22
 	echo Converter : 720p - Aac
 	echo Started: %date% %time%
 		setlocal EnableExtensions
@@ -13,6 +13,7 @@ echo Lead-in
 	echo/
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Select and file name
+
 	set dialog="about:<input type=file id=FILE><script>FILE.click();new ActiveXObject
 	set dialog=%dialog%('Scripting.FileSystemObject').GetStandardStream(1).WriteLine(FILE.value);
 	set dialog=%dialog%close();resizeTo(0,0);</script>"
@@ -23,12 +24,12 @@ echo Select and file name
 	echo/
 	echo Save file name will be : %name%-720p.x264.10b.Sdr-aac.mkv
 	echo/
-	ping localhost -n 2 >nul
+	ping localhost -n 1 >nul
 
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Convert
 	echo/
-	ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=1280x720:flags=lanczos,format=yuv420p -crf 24 -preset faster -tune fastdecode -c:a aac "%name%-720p.x264.10b.Sdr-aac.mkv"
+	ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=1280x720:flags=lanczos,format=yuv420p10le -crf 24 -preset faster -tune fastdecode -c:a aac "%name%-720p.x264.10b.Sdr-aac.mkv"
 	echo/
 
 echo -------------------------=========== SEPARATOR =============-------------------------

@@ -2,8 +2,7 @@
 path=C:\Program Files\ffmpeg\bin;C:\Windows\System32
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Lead-in
-	echo/
-	echo LostByteSoft AudioVideoConverter Version 2025-08-30-14-06-37
+	echo LostByteSoft Version 2025-08-23-09-16-43
 	echo https://github.com/LostByteSoft/AudioVideoConverter
 	echo/
 	if exist "C:\Program Files\ffmpeg\bin\ffmpeg.exe" (
