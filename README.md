@@ -3,6 +3,10 @@ Audio &amp; Video Converter for Windows (In batch style)
 
 Converter for windows (any).
 
+Tested and used on Windows 11 24H2 26100.6584
+
+Tested with : ffmpeg-2025-03-10-git-87e5da9067-full_build.7z
+
 # Converter
 
 Convert any audio file to : -acodec libmp3lame -ab 320k -ar 44100 -ac 2
