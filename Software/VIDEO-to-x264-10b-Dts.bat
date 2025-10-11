@@ -29,15 +29,7 @@ echo Select and file name
 echo -------------------------=========== SEPARATOR =============-------------------------
 echo Convert
 	echo/
-	echo OLD ffmpeg -loglevel error -v error -stats -i "%file%" -vf scale=1920x1080:flags=lanczos,format=yuv420p10le -crf 22 -preset faster -tune fastdecode -strict experimental -c:a dts "%name%-1080p.x264.10b.Sdr-Dts.mkv"
-
-
 	ffmpeg -loglevel error -v error -stats -i "%file%" -c:v libx264 -crf 22 -preset faster -tune fastdecode -pix_fmt yuv420p10le -strict experimental -c:a dts "%name%-x264.10b-Dts.mkv"
-
-	echo AI ffmpeg -loglevel error -stats -i "%file%" -c:v libx264 -crf 22 -preset faster -tune fastdecode -pix_fmt yuv420p10le -c:a dts "%name%-x264.10b-Dts.mkv"
-
-
-
 	echo/
 
 echo -------------------------=========== SEPARATOR =============-------------------------
