@@ -1,6 +1,6 @@
 ;; Lostbytesoft Autohotkey select a file
 
-FileSelectFile, SelectedFile, 3, %A_ScriptDir%\, LostByteSoft, Select ONE file (*.mkv; *.mka)
+FileSelectFile, SelectedFile, 3, %A_ScriptDir%\, LostByteSoft, Select ONE file (*.mkv; *.mp4; *.mka)
 
 if (SelectedFile = "")
 	MsgBox ,, LostByteSoft, You didn't select anything.
